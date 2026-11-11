@@ -16,9 +16,15 @@ import {
   LogOut,
   ExternalLink,
   ShieldCheck,
+  X,
 } from "lucide-react";
 
-export function AdminSidebar() {
+interface AdminSidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+export function AdminSidebar({ isOpen = false, onClose }: AdminSidebarProps) {
   const pathname = usePathname();
 
   const navItems = [
@@ -33,12 +39,20 @@ export function AdminSidebar() {
   ];
 
   return (
-    <aside className="w-full lg:w-64 bg-brand-dark text-white flex flex-col justify-between shrink-0 border-r border-white/10 select-none">
+    <aside
+      className={`fixed inset-y-0 left-0 z-50 w-72 max-w-[85vw] lg:w-64 lg:static lg:translate-x-0 bg-brand-dark text-white flex flex-col justify-between shrink-0 border-r border-white/10 select-none overflow-y-auto transform transition-transform duration-300 ease-in-out ${
+        isOpen ? "translate-x-0" : "-translate-x-full"
+      }`}
+    >
       <div>
         {/* Top Brand Logo matching official ViP emblem */}
-        <div className="p-5 border-b border-white/10 flex items-center justify-between">
-          <Link href="/admin" className="flex items-center gap-3 group">
-            <div className="relative h-10 w-24 shrink-0 transition-transform group-hover:scale-105">
+        <div className="p-4 sm:p-5 border-b border-white/10 flex items-center justify-between gap-2">
+          <Link
+            href="/admin"
+            onClick={onClose}
+            className="flex items-center gap-3 group min-w-0"
+          >
+            <div className="relative h-9 w-20 sm:h-10 sm:w-24 shrink-0 transition-transform group-hover:scale-105">
               <Image
                 src="/images/logos/vip-logo.png"
                 alt="ViP Official Logo"
@@ -57,6 +71,14 @@ export function AdminSidebar() {
               </span>
             </div>
           </Link>
+          <button
+            type="button"
+            onClick={onClose}
+            className="lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-colors shrink-0"
+            aria-label="Close admin sidebar"
+          >
+            <X className="w-5 h-5" />
+          </button>
         </div>
 
         {/* Navigation Links */}
@@ -75,7 +97,8 @@ export function AdminSidebar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all ${
+                onClick={onClose}
+                className={`flex items-center gap-3 px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs font-semibold tracking-wide transition-all ${
                   isActive
                     ? "bg-brand-yellow text-brand-dark font-bold shadow-md"
                     : "text-gray-300 hover:text-white hover:bg-white/5"
@@ -121,7 +144,8 @@ export function AdminSidebar() {
 
         <Link
           href="/"
-          className="flex items-center gap-2 px-3.5 py-2 text-xs font-semibold text-red-400 hover:text-red-300 hover:bg-red-950/20 rounded-lg transition-colors"
+          onClick={onClose}
+          className="flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] text-xs font-semibold text-red-400 hover:text-red-300 hover:bg-red-950/20 rounded-lg transition-colors"
         >
           <LogOut className="w-3.5 h-3.5" />
           <span>Exit Admin Portal</span>

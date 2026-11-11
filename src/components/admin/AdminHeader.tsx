@@ -2,9 +2,13 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Search, Bell, ChevronDown, ExternalLink, Plus, CheckCircle, ShieldAlert } from "lucide-react";
+import { Search, Bell, ChevronDown, ExternalLink, Plus, Menu } from "lucide-react";
 
-export function AdminHeader() {
+interface AdminHeaderProps {
+  onMenuOpen?: () => void;
+}
+
+export function AdminHeader({ onMenuOpen }: AdminHeaderProps) {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
 
@@ -30,25 +34,42 @@ export function AdminHeader() {
   ];
 
   return (
-    <header className="h-16 bg-white border-b border-brand-border px-6 flex items-center justify-between gap-4 sticky top-0 z-30 shadow-xs select-none">
+    <header className="h-16 bg-white border-b border-brand-border px-4 sm:px-6 flex items-center justify-between gap-3 sm:gap-4 sticky top-0 z-30 shadow-xs select-none">
+      <div className="flex items-center gap-2.5 min-w-0">
+        <button
+          type="button"
+          onClick={onMenuOpen}
+          className="lg:hidden min-w-[44px] min-h-[44px] -ml-1.5 flex items-center justify-center rounded-lg text-brand-dark hover:bg-brand-light transition-colors shrink-0"
+          aria-label="Open admin navigation"
+        >
+          <Menu className="w-5 h-5" />
+        </button>
+
+        <Link href="/admin" className="sm:hidden flex items-center gap-1.5 min-w-0">
+          <span className="font-heading font-black text-sm text-brand-dark tracking-tight truncate">
+            ViP Admin
+          </span>
+        </Link>
+      </div>
+
       {/* Universal Search Bar */}
       <div className="relative w-full max-w-md hidden sm:block">
         <Search className="w-4 h-4 text-brand-muted absolute left-3.5 top-1/2 -translate-y-1/2" />
         <input
           type="text"
           placeholder="Search projects, enquiries, drawings, or clients..."
-          className="w-full pl-9 pr-4 py-1.5 text-xs rounded-lg border border-brand-border bg-brand-light focus:outline-none focus:border-brand-yellow focus:bg-white transition-all text-brand-dark placeholder:text-brand-muted"
+          className="w-full min-h-[38px] pl-9 pr-4 py-1.5 text-sm sm:text-xs rounded-lg border border-brand-border bg-brand-light focus:outline-none focus:border-brand-yellow focus:bg-white transition-all text-brand-dark placeholder:text-brand-muted"
         />
       </div>
 
       {/* Right Controls */}
-      <div className="flex items-center gap-3 ml-auto">
+      <div className="flex items-center gap-2 sm:gap-3 ml-auto shrink-0">
         {/* Quick Add Project Button */}
         <Link
           href="/admin/projects?action=new"
-          className="inline-flex items-center gap-1.5 bg-brand-yellow hover:bg-brand-yellow-hover text-brand-dark px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors shadow-xs"
+          className="inline-flex items-center justify-center gap-1.5 bg-brand-yellow hover:bg-brand-yellow-hover text-brand-dark px-3 min-h-[40px] rounded-lg text-xs font-bold uppercase tracking-wider transition-colors shadow-xs shrink-0"
         >
-          <Plus className="w-3.5 h-3.5 font-bold" />
+          <Plus className="w-4 h-4 sm:w-3.5 sm:h-3.5 font-bold" />
           <span className="hidden md:inline">New Project</span>
         </Link>
 
@@ -66,15 +87,15 @@ export function AdminHeader() {
         <div className="relative">
           <button
             onClick={() => setShowNotifications(!showNotifications)}
-            className="relative p-2 rounded-lg text-brand-muted hover:text-brand-dark hover:bg-brand-light transition-colors"
+            className="relative min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg text-brand-muted hover:text-brand-dark hover:bg-brand-light transition-colors"
             aria-label="Notifications"
           >
             <Bell className="w-4 h-4" />
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-brand-yellow border-2 border-white" />
+            <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-brand-yellow border-2 border-white" />
           </button>
 
           {showNotifications && (
-            <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-brand-border p-3 z-50">
+            <div className="absolute right-0 mt-2 w-[calc(100vw-2rem)] max-w-xs sm:w-80 bg-white rounded-xl shadow-xl border border-brand-border p-3 z-50">
               <div className="flex items-center justify-between pb-2 border-b border-brand-border mb-2">
                 <span className="font-heading font-bold text-xs text-brand-dark">
                   Site Notifications
@@ -87,9 +108,8 @@ export function AdminHeader() {
                 {notifications.map((n, idx) => (
                   <div
                     key={idx}
-                    className={`p-2 rounded-lg text-xs transition-colors ${
-                      n.unread ? "bg-brand-light border border-brand-border" : "hover:bg-brand-light"
-                    }`}
+                    className={`p-2 rounded-lg text-xs transition-colors ${n.unread ? "bg-brand-light border border-brand-border" : "hover:bg-brand-light"
+                      }`}
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-brand-dark">{n.title}</span>
@@ -109,7 +129,7 @@ export function AdminHeader() {
         <div className="relative">
           <button
             onClick={() => setShowUserMenu(!showUserMenu)}
-            className="flex items-center gap-2.5 pl-3 border-l border-brand-border focus:outline-none"
+            className="flex items-center gap-2.5 pl-2.5 sm:pl-3 min-h-[40px] border-l border-brand-border focus:outline-none"
           >
             <div className="w-8 h-8 rounded-full bg-brand-dark text-brand-yellow font-heading font-black text-xs flex items-center justify-center shadow-xs border border-brand-yellow/30">
               VS

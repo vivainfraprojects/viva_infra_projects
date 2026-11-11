@@ -196,7 +196,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Middle: Enquiries Overview Chart matching reference image */}
-      <div className="bg-white p-6 rounded-xl border border-brand-border shadow-xs space-y-4">
+      <div className="bg-white p-4 sm:p-6 rounded-xl border border-brand-border shadow-xs space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <h2 className="font-heading font-bold text-base text-brand-dark">
@@ -207,13 +207,13 @@ export default function AdminDashboardPage() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between sm:justify-end gap-3">
             <div className="flex items-center bg-brand-light border border-brand-border rounded-lg p-0.5 text-xs font-semibold">
               {["Monthly", "Quarterly", "Annual"].map((period) => (
                 <button
                   key={period}
                   onClick={() => setTimeRange(period)}
-                  className={`px-3 py-1 rounded-md transition-colors ${
+                  className={`min-h-[34px] px-2.5 sm:px-3 py-1 rounded-md transition-colors ${
                     timeRange === period
                       ? "bg-white text-brand-dark font-bold shadow-xs"
                       : "text-brand-muted hover:text-brand-dark"
@@ -226,7 +226,7 @@ export default function AdminDashboardPage() {
 
             <Link
               href="/admin/enquiries"
-              className="text-xs font-bold text-brand-yellow hover:underline"
+              className="text-xs font-bold text-brand-yellow hover:underline min-h-[34px] inline-flex items-center shrink-0"
             >
               View All
             </Link>
@@ -234,47 +234,49 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* SVG Sparkline / Area Chart matching reference */}
-        <div className="pt-4 pb-2">
-          <div className="relative h-48 w-full">
-            <svg
-              viewBox="0 0 800 200"
-              className="w-full h-full overflow-visible"
-              preserveAspectRatio="none"
-            >
-              <defs>
-                <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#F8C02E" stopOpacity="0.45" />
-                  <stop offset="100%" stopColor="#F8C02E" stopOpacity="0.0" />
-                </linearGradient>
-              </defs>
+        <div className="pt-3 pb-1 overflow-x-auto">
+          <div className="min-w-[420px] sm:min-w-0">
+            <div className="relative h-44 sm:h-48 w-full">
+              <svg
+                viewBox="0 0 800 200"
+                className="w-full h-full overflow-visible"
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#F8C02E" stopOpacity="0.45" />
+                    <stop offset="100%" stopColor="#F8C02E" stopOpacity="0.0" />
+                  </linearGradient>
+                </defs>
 
-              {/* Horizontal grid lines */}
-              <line x1="0" y1="40" x2="800" y2="40" stroke="#F1F5F9" strokeDasharray="3 3" />
-              <line x1="0" y1="90" x2="800" y2="90" stroke="#F1F5F9" strokeDasharray="3 3" />
-              <line x1="0" y1="140" x2="800" y2="140" stroke="#F1F5F9" strokeDasharray="3 3" />
+                {/* Horizontal grid lines */}
+                <line x1="0" y1="40" x2="800" y2="40" stroke="#F1F5F9" strokeDasharray="3 3" />
+                <line x1="0" y1="90" x2="800" y2="90" stroke="#F1F5F9" strokeDasharray="3 3" />
+                <line x1="0" y1="140" x2="800" y2="140" stroke="#F1F5F9" strokeDasharray="3 3" />
 
-              {/* Area fill */}
-              <path
-                d="M 0,160 Q 90,140 180,120 T 360,95 T 540,60 T 720,30 L 800,20 L 800,200 L 0,200 Z"
-                fill="url(#chartGradient)"
-              />
+                {/* Area fill */}
+                <path
+                  d="M 0,160 Q 90,140 180,120 T 360,95 T 540,60 T 720,30 L 800,20 L 800,200 L 0,200 Z"
+                  fill="url(#chartGradient)"
+                />
 
-              {/* Chart line */}
-              <path
-                d="M 0,160 Q 90,140 180,120 T 360,95 T 540,60 T 720,30 L 800,20"
-                fill="none"
-                stroke="#F8C02E"
-                strokeWidth="3.5"
-                strokeLinecap="round"
-              />
+                {/* Chart line */}
+                <path
+                  d="M 0,160 Q 90,140 180,120 T 360,95 T 540,60 T 720,30 L 800,20"
+                  fill="none"
+                  stroke="#F8C02E"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                />
 
-              {/* Highlight dots */}
-              <circle cx="180" cy="120" r="4.5" fill="#181818" stroke="#F8C02E" strokeWidth="2.5" />
-              <circle cx="360" cy="95" r="4.5" fill="#181818" stroke="#F8C02E" strokeWidth="2.5" />
-              <circle cx="540" cy="60" r="4.5" fill="#181818" stroke="#F8C02E" strokeWidth="2.5" />
-              <circle cx="720" cy="30" r="4.5" fill="#181818" stroke="#F8C02E" strokeWidth="2.5" />
-              <circle cx="800" cy="20" r="6" fill="#F8C02E" stroke="#181818" strokeWidth="2.5" />
-            </svg>
+                {/* Highlight dots */}
+                <circle cx="180" cy="120" r="4.5" fill="#181818" stroke="#F8C02E" strokeWidth="2.5" />
+                <circle cx="360" cy="95" r="4.5" fill="#181818" stroke="#F8C02E" strokeWidth="2.5" />
+                <circle cx="540" cy="60" r="4.5" fill="#181818" stroke="#F8C02E" strokeWidth="2.5" />
+                <circle cx="720" cy="30" r="4.5" fill="#181818" stroke="#F8C02E" strokeWidth="2.5" />
+                <circle cx="800" cy="20" r="6" fill="#F8C02E" stroke="#181818" strokeWidth="2.5" />
+              </svg>
+            </div>
 
             {/* X Axis Labels */}
             <div className="flex justify-between text-[11px] text-brand-muted font-medium pt-3">
@@ -314,8 +316,8 @@ export default function AdminDashboardPage() {
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs">
-            <thead className="bg-brand-light text-brand-muted uppercase text-[10px] font-bold tracking-wider border-b border-brand-border">
+          <table className="w-full min-w-[760px] text-left text-xs">
+            <thead className="bg-brand-light text-brand-muted uppercase text-[10px] font-bold tracking-wider border-b border-brand-border whitespace-nowrap">
               <tr>
                 <th className="py-3 px-5">ID</th>
                 <th className="py-3 px-5">Client / Company</th>

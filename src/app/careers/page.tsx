@@ -256,13 +256,13 @@ export default function CareersPage() {
                       {job.description}
                     </p>
 
-                    <div className="mt-4 pt-3 border-t border-brand-border/60 flex items-center gap-4 text-xs text-brand-dark">
+                    <div className="mt-4 pt-3 border-t border-brand-border/60 flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-brand-dark">
                       <span className="flex items-center gap-1">
-                        <MapPin className="w-3.5 h-3.5 text-brand-yellow" />
+                        <MapPin className="w-3.5 h-3.5 text-brand-yellow shrink-0" />
                         <span>{job.location}</span>
                       </span>
                       <span className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5 text-brand-yellow" />
+                        <Clock className="w-3.5 h-3.5 text-brand-yellow shrink-0" />
                         <span>{job.type}</span>
                       </span>
                     </div>
@@ -273,7 +273,7 @@ export default function CareersPage() {
 
             {/* Candidate Application Form (5 cols) */}
             <div className="lg:col-span-5">
-              <div className="bg-white rounded-2xl border border-brand-border p-6 sm:p-8 shadow-card sticky top-24">
+              <div className="bg-white rounded-2xl border border-brand-border p-5 sm:p-8 shadow-card lg:sticky lg:top-24">
                 <h3 className="font-heading font-bold text-xl text-brand-dark mb-1">
                   Apply for a Position
                 </h3>
@@ -291,7 +291,7 @@ export default function CareersPage() {
                       </p>
                       <button
                         onClick={() => setIsSuccess(false)}
-                        className="mt-2 font-bold text-brand-dark underline"
+                        className="mt-2 font-bold text-brand-dark underline min-h-[36px] inline-flex items-center"
                       >
                         Submit another application
                       </button>
@@ -315,7 +315,7 @@ export default function CareersPage() {
                       type="text"
                       readOnly
                       value={formData.position}
-                      className="w-full px-3.5 py-2.5 rounded-md border border-brand-border text-xs bg-brand-light text-brand-dark font-semibold cursor-not-allowed"
+                      className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md border border-brand-border text-base sm:text-xs bg-brand-light text-brand-dark font-semibold cursor-not-allowed"
                     />
                   </div>
 
@@ -329,11 +329,11 @@ export default function CareersPage() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. S. Venkatesh"
-                      className="w-full px-3.5 py-2.5 rounded-md border border-brand-border text-xs text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow"
+                      className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md border border-brand-border text-base sm:text-xs text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow"
                     />
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-3">
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wider text-brand-dark mb-1">
                         Email *
@@ -344,7 +344,7 @@ export default function CareersPage() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="venkatesh@mail.com"
-                        className="w-full px-3.5 py-2.5 rounded-md border border-brand-border text-xs text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow"
+                        className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md border border-brand-border text-base sm:text-xs text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow"
                       />
                     </div>
 
@@ -358,7 +358,7 @@ export default function CareersPage() {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 98765 43210"
-                        className="w-full px-3.5 py-2.5 rounded-md border border-brand-border text-xs text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow"
+                        className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md border border-brand-border text-base sm:text-xs text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow"
                       />
                     </div>
                   </div>
@@ -370,7 +370,7 @@ export default function CareersPage() {
                     <select
                       value={formData.experience}
                       onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-md border border-brand-border text-xs text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow"
+                      className="w-full min-h-[44px] px-3.5 py-2.5 rounded-md border border-brand-border text-base sm:text-xs text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow"
                     >
                       <option value="1-3 Years">1 - 3 Years</option>
                       <option value="3-5 Years">3 - 5 Years</option>
@@ -389,7 +389,7 @@ export default function CareersPage() {
                       value={formData.coverNote}
                       onChange={(e) => setFormData({ ...formData, coverNote: e.target.value })}
                       placeholder="Mention your relevant site experience, key projects handled, and earliest joining availability..."
-                      className="w-full px-3.5 py-2.5 rounded-md border border-brand-border text-xs text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow"
+                      className="w-full px-3.5 py-2.5 rounded-md border border-brand-border text-base sm:text-xs text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow"
                     />
                   </div>
 

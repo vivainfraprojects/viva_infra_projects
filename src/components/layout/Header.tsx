@@ -59,15 +59,15 @@ export function Header() {
           </div>
 
           {/* Right Header Actions */}
-          <div className="flex items-center gap-3">
-            {/* Search Icon matching reference */}
+          <div className="flex items-center gap-1.5 sm:gap-3">
+            {/* Search Icon matching reference - available on Mobile, Tablet & Desktop */}
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="hidden md:flex p-2 text-brand-dark hover:text-brand-yellow transition-colors focus:outline-none"
+              className="flex min-w-[44px] min-h-[44px] items-center justify-center rounded-lg text-brand-dark hover:text-brand-yellow-hover hover:bg-brand-yellow-light transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow"
               aria-label="Search"
               title="Quick Search (Ctrl+K)"
             >
-              <Search className="w-4 h-4" />
+              <Search className="w-5 h-5 sm:w-4 sm:h-4" />
             </button>
 
             {/* Direct Phone link on desktop */}

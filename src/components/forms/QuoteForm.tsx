@@ -137,11 +137,10 @@ export function QuoteForm() {
                 setFormData({ ...formData, fullName: e.target.value })
               }
               placeholder="e.g. S. Ramanathan"
-              className={`w-full px-4 py-2.5 rounded-lg border text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${
-                errors.fullName
+              className={`w-full px-4 py-2.5 min-h-[44px] rounded-lg border text-base sm:text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${errors.fullName
                   ? "border-red-400 focus:ring-red-200"
                   : "border-brand-border focus:border-brand-yellow focus:ring-brand-yellow-light"
-              }`}
+                }`}
             />
             {errors.fullName && (
               <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
@@ -167,11 +166,10 @@ export function QuoteForm() {
                 setFormData({ ...formData, companyName: e.target.value })
               }
               placeholder="e.g. Automotive Components Pvt Ltd"
-              className={`w-full px-4 py-2.5 rounded-lg border text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${
-                errors.companyName
+              className={`w-full px-4 py-2.5 min-h-[44px] rounded-lg border text-base sm:text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${errors.companyName
                   ? "border-red-400 focus:ring-red-200"
                   : "border-brand-border focus:border-brand-yellow focus:ring-brand-yellow-light"
-              }`}
+                }`}
             />
             {errors.companyName && (
               <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
@@ -200,11 +198,10 @@ export function QuoteForm() {
                 setFormData({ ...formData, email: e.target.value })
               }
               placeholder="e.g. ramanathan@autocomp.com"
-              className={`w-full px-4 py-2.5 rounded-lg border text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${
-                errors.email
+              className={`w-full px-4 py-2.5 min-h-[44px] rounded-lg border text-base sm:text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${errors.email
                   ? "border-red-400 focus:ring-red-200"
                   : "border-brand-border focus:border-brand-yellow focus:ring-brand-yellow-light"
-              }`}
+                }`}
             />
             {errors.email && (
               <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
@@ -230,11 +227,10 @@ export function QuoteForm() {
                 setFormData({ ...formData, phone: e.target.value })
               }
               placeholder="e.g. +91 91590 50754"
-              className={`w-full px-4 py-2.5 rounded-lg border text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${
-                errors.phone
+              className={`w-full px-4 py-2.5 min-h-[44px] rounded-lg border text-base sm:text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${errors.phone
                   ? "border-red-400 focus:ring-red-200"
                   : "border-brand-border focus:border-brand-yellow focus:ring-brand-yellow-light"
-              }`}
+                }`}
             />
             {errors.phone && (
               <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
@@ -260,7 +256,7 @@ export function QuoteForm() {
               onChange={(e) =>
                 setFormData({ ...formData, projectType: e.target.value })
               }
-              className="w-full px-4 py-2.5 rounded-lg border border-brand-border text-sm text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow-light transition-all"
+              className="w-full min-h-[44px] px-4 py-2.5 rounded-lg border border-brand-border text-base sm:text-sm text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow-light transition-all"
             >
               <option value="Civil Construction">Civil Construction & Heavy Foundations</option>
               <option value="PEB & Structural">PEB & Heavy Steel Structural Works</option>
@@ -289,11 +285,10 @@ export function QuoteForm() {
                 setFormData({ ...formData, projectLocation: e.target.value })
               }
               placeholder="e.g. Sriperumbudur / Oragadam / Hosur / Other"
-              className={`w-full px-4 py-2.5 rounded-lg border text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${
-                errors.projectLocation
+              className={`w-full min-h-[44px] px-4 py-2.5 rounded-lg border text-base sm:text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${errors.projectLocation
                   ? "border-red-400 focus:ring-red-200"
                   : "border-brand-border focus:border-brand-yellow focus:ring-brand-yellow-light"
-              }`}
+                }`}
             />
             {errors.projectLocation && (
               <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
@@ -318,7 +313,7 @@ export function QuoteForm() {
             onChange={(e) =>
               setFormData({ ...formData, estimatedBudget: e.target.value })
             }
-            className="w-full px-4 py-2.5 rounded-lg border border-brand-border text-sm text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow-light transition-all"
+            className="w-full min-h-[44px] px-4 py-2.5 rounded-lg border border-brand-border text-base sm:text-sm text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow-light transition-all"
           >
             <option value="">Select an estimated budget range</option>
             <option value="Under ₹25 Lakhs">Under ₹25 Lakhs</option>
@@ -346,11 +341,10 @@ export function QuoteForm() {
               setFormData({ ...formData, projectDescription: e.target.value })
             }
             placeholder="Please specify built-up area (sq. ft. / sq. m.), machine tonnages, foundation requirements, target completion schedule, or any specific drawings available..."
-            className={`w-full px-4 py-2.5 rounded-lg border text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${
-              errors.projectDescription
+            className={`w-full px-4 py-2.5 rounded-lg border text-base sm:text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${errors.projectDescription
                 ? "border-red-400 focus:ring-red-200"
                 : "border-brand-border focus:border-brand-yellow focus:ring-brand-yellow-light"
-            }`}
+              }`}
           />
           {errors.projectDescription && (
             <p className="mt-1 text-xs text-red-600 flex items-center gap-1">

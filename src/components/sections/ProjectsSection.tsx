@@ -49,14 +49,14 @@ export function ProjectsSection() {
           </Link>
         </div>
 
-        {/* Filter Pills matching reference screenshot: Golden Yellow for Active */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
+        {/* Filter Pills matching reference screenshot: Edge-to-edge swipeable on Mobile */}
+        <div className="flex items-center gap-2 overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 pb-4 mb-6 sm:mb-8 no-scrollbar">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={cn(
-                "px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow",
+                "px-4 sm:px-5 py-2.5 min-h-[40px] rounded-full text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow",
                 activeCategory === cat
                   ? "bg-brand-yellow text-brand-dark shadow-sm"
                   : "bg-brand-light text-brand-dark hover:bg-brand-yellow-light border border-brand-border"

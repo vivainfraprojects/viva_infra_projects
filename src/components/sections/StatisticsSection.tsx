@@ -31,27 +31,27 @@ export function StatisticsSection() {
   ];
 
   return (
-    <section className="bg-white text-brand-dark py-8 sm:py-10 border-b border-brand-border relative z-20">
+    <section className="bg-white text-brand-dark py-6 sm:py-10 border-b border-brand-border relative z-20">
       <Container size="wide">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {highlights.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="flex items-center gap-4 sm:gap-5 border-l-2 border-brand-yellow/60 pl-4 sm:pl-6"
+                className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-4 border-l-2 border-brand-yellow/60 pl-3 sm:pl-5"
               >
-                <div className="w-12 h-12 rounded-full bg-brand-yellow-light border-2 border-brand-yellow text-brand-dark flex items-center justify-center shrink-0">
-                  <Icon className="w-6 h-6 text-brand-yellow" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-yellow-light border-2 border-brand-yellow text-brand-dark flex items-center justify-center shrink-0">
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-brand-yellow-hover" />
                 </div>
                 <div>
-                  <div className="font-heading font-black text-2xl sm:text-3xl text-brand-dark tracking-tight">
+                  <div className="font-heading font-black text-xl sm:text-2xl lg:text-3xl text-brand-dark tracking-tight leading-tight">
                     {item.value}
                   </div>
-                  <div className="font-heading font-semibold text-xs sm:text-sm text-brand-muted uppercase tracking-wider">
+                  <div className="font-heading font-semibold text-[11px] sm:text-xs lg:text-sm text-brand-muted uppercase tracking-wider mt-0.5">
                     {item.label}
                   </div>
-                  <div className="text-[11px] text-brand-muted/80 hidden sm:block">
+                  <div className="text-[11px] text-brand-muted/80 hidden md:block">
                     {item.subtext}
                   </div>
                 </div>

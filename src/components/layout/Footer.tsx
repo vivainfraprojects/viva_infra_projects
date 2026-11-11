@@ -28,10 +28,10 @@ export function Footer() {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 w-full md:w-auto">
               <Link
                 href="/get-a-quote"
-                className="inline-flex items-center gap-2 bg-brand-yellow hover:bg-brand-yellow-hover text-brand-dark font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-md transition-all shadow-md group"
+                className="w-full md:w-auto justify-center min-h-[44px] inline-flex items-center gap-2 bg-brand-yellow hover:bg-brand-yellow-hover text-brand-dark font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-md transition-all shadow-md group"
               >
                 <span>Request Quotation</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />

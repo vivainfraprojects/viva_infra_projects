@@ -58,17 +58,17 @@ export default function ProjectsPage() {
       {/* Projects Gallery Section matching reference screenshot */}
       <section className="py-14 sm:py-20 bg-brand-light/40">
         <Container size="wide">
-          {/* Category Filter Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar">
+          {/* Category Filter Pills - swipeable edge-to-edge on mobile */}
+          <div className="flex items-center gap-2 overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 pb-4 mb-8 sm:mb-10 no-scrollbar">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={cn(
-                  "px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-forest",
+                  "px-4 sm:px-5 py-2.5 min-h-[40px] rounded-full text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow",
                   activeCategory === cat
-                    ? "bg-brand-forest text-white shadow-sm"
-                    : "bg-white text-brand-charcoal hover:bg-brand-sage-light border border-brand-border"
+                    ? "bg-brand-yellow text-brand-dark shadow-sm"
+                    : "bg-white text-brand-dark hover:bg-brand-yellow-light border border-brand-border"
                 )}
               >
                 {cat === "All" ? "All Projects" : cat}

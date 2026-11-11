@@ -17,17 +17,17 @@ export function Logo({
 }: LogoProps) {
   const isLight = variant === "light";
   
-  // Height sizing
+  // Height sizing optimized for 320px mobile through desktop
   const dimensions = {
-    sm: { h: "h-8", w: "w-20", text: "text-xs", subtext: "text-[8px]" },
-    md: { h: "h-10 sm:h-11", w: "w-24 sm:w-28", text: "text-xs sm:text-sm", subtext: "text-[9px]" },
-    lg: { h: "h-12 sm:h-14", w: "w-32 sm:w-36", text: "text-sm sm:text-base", subtext: "text-[10px]" },
+    sm: { h: "h-7 sm:h-8", w: "w-16 sm:w-20", text: "text-[11px] sm:text-xs", subtext: "text-[8px]" },
+    md: { h: "h-8 sm:h-10 md:h-11", w: "w-20 sm:w-24 md:w-28", text: "text-[11px] sm:text-xs md:text-sm", subtext: "text-[8px] sm:text-[9px]" },
+    lg: { h: "h-11 sm:h-13", w: "w-28 sm:w-36", text: "text-sm sm:text-base", subtext: "text-[9px] sm:text-[10px]" },
   }[size];
 
   return (
     <Link
       href="/"
-      className={`inline-flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow rounded-md ${className}`}
+      className={`inline-flex items-center gap-2 sm:gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow rounded-md ${className}`}
       aria-label="VIVA INFRA PROJECTS Home"
     >
       {/* Official ViP Oval Logo Image */}
@@ -37,16 +37,16 @@ export function Logo({
           alt="ViP - Viva Infra Projects Official Logo"
           fill
           priority
-          sizes="(max-width: 768px) 112px, 144px"
+          sizes="(max-width: 768px) 96px, 144px"
           className="object-contain"
         />
       </div>
 
       {/* Full Corporate Name with Subtitle */}
       {showText && (
-        <div className={`flex flex-col border-l pl-2.5 ${isLight ? "border-white/20" : "border-brand-border"}`}>
+        <div className={`flex flex-col border-l pl-2 sm:pl-2.5 ${isLight ? "border-white/20" : "border-brand-border"}`}>
           <span
-            className={`font-heading font-black tracking-tight ${dimensions.text} uppercase leading-tight ${
+            className={`font-heading font-black tracking-tight ${dimensions.text} uppercase leading-tight whitespace-nowrap ${
               isLight ? "text-white" : "text-brand-dark"
             }`}
           >

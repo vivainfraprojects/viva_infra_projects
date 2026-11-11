@@ -49,7 +49,7 @@ export default function AdminContentPage() {
 
       <form onSubmit={handleSave} className="space-y-6">
         {/* Section 1: Official Corporate Identity */}
-        <div className="bg-white p-6 rounded-xl border border-brand-border shadow-xs space-y-4">
+        <div className="bg-white p-4 sm:p-6 rounded-xl border border-brand-border shadow-xs space-y-4">
           <div className="flex items-center gap-2 pb-2 border-b border-brand-border">
             <Building className="w-4 h-4 text-brand-yellow" />
             <h2 className="font-heading font-bold text-sm text-brand-dark uppercase tracking-wider">
@@ -64,7 +64,7 @@ export default function AdminContentPage() {
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
+                className="w-full min-h-[42px] px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
               />
             </div>
             <div>
@@ -73,7 +73,7 @@ export default function AdminContentPage() {
                 type="text"
                 value={formData.shortName}
                 onChange={(e) => setFormData({ ...formData, shortName: e.target.value })}
-                className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
+                className="w-full min-h-[42px] px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
               />
             </div>
             <div className="md:col-span-2">
@@ -82,14 +82,14 @@ export default function AdminContentPage() {
                 type="text"
                 value={formData.tagline}
                 onChange={(e) => setFormData({ ...formData, tagline: e.target.value })}
-                className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
+                className="w-full min-h-[42px] px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
               />
             </div>
           </div>
         </div>
 
         {/* Section 2: Mission & Vision Verbatim Statements */}
-        <div className="bg-white p-6 rounded-xl border border-brand-border shadow-xs space-y-4">
+        <div className="bg-white p-4 sm:p-6 rounded-xl border border-brand-border shadow-xs space-y-4">
           <div className="flex items-center gap-2 pb-2 border-b border-brand-border">
             <FileText className="w-4 h-4 text-brand-yellow" />
             <h2 className="font-heading font-bold text-sm text-brand-dark uppercase tracking-wider">
@@ -106,7 +106,7 @@ export default function AdminContentPage() {
                 rows={3}
                 value={formData.missionStatement}
                 onChange={(e) => setFormData({ ...formData, missionStatement: e.target.value })}
-                className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none leading-relaxed"
+                className="w-full px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none leading-relaxed"
               />
             </div>
 
@@ -118,14 +118,14 @@ export default function AdminContentPage() {
                 rows={3}
                 value={formData.visionStatement}
                 onChange={(e) => setFormData({ ...formData, visionStatement: e.target.value })}
-                className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none leading-relaxed"
+                className="w-full px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none leading-relaxed"
               />
             </div>
           </div>
         </div>
 
         {/* Section 3: Statutory GST Registration & Financial Growth */}
-        <div className="bg-white p-6 rounded-xl border border-brand-border shadow-xs space-y-4">
+        <div className="bg-white p-4 sm:p-6 rounded-xl border border-brand-border shadow-xs space-y-4">
           <div className="flex items-center gap-2 pb-2 border-b border-brand-border">
             <ShieldCheck className="w-4 h-4 text-brand-yellow" />
             <h2 className="font-heading font-bold text-sm text-brand-dark uppercase tracking-wider">
@@ -140,7 +140,7 @@ export default function AdminContentPage() {
                 type="text"
                 value={formData.gstin}
                 onChange={(e) => setFormData({ ...formData, gstin: e.target.value })}
-                className="w-full px-3 py-2 rounded-lg border border-brand-border font-mono font-bold text-brand-dark focus:border-brand-yellow focus:outline-none"
+                className="w-full min-h-[42px] px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border font-mono font-bold text-brand-dark focus:border-brand-yellow focus:outline-none"
               />
             </div>
             <div>
@@ -149,7 +149,7 @@ export default function AdminContentPage() {
                 type="text"
                 value={formData.legalName}
                 onChange={(e) => setFormData({ ...formData, legalName: e.target.value })}
-                className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
+                className="w-full min-h-[42px] px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
               />
             </div>
             <div>
@@ -158,7 +158,7 @@ export default function AdminContentPage() {
                 type="text"
                 value={formData.tradeName}
                 onChange={(e) => setFormData({ ...formData, tradeName: e.target.value })}
-                className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
+                className="w-full min-h-[42px] px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
               />
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function AdminContentPage() {
         </div>
 
         {/* Section 4: Contact & Address */}
-        <div className="bg-white p-6 rounded-xl border border-brand-border shadow-xs space-y-4">
+        <div className="bg-white p-4 sm:p-6 rounded-xl border border-brand-border shadow-xs space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
             <div>
               <label className="font-bold text-brand-dark block mb-1">Phone Number</label>
@@ -189,7 +189,7 @@ export default function AdminContentPage() {
                 type="text"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
+                className="w-full min-h-[42px] px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
               />
             </div>
             <div>
@@ -198,7 +198,7 @@ export default function AdminContentPage() {
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
+                className="w-full min-h-[42px] px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
               />
             </div>
             <div className="md:col-span-2">
@@ -207,7 +207,7 @@ export default function AdminContentPage() {
                 type="text"
                 value={formData.address}
                 onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
+                className="w-full min-h-[42px] px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
               />
             </div>
           </div>
@@ -217,7 +217,7 @@ export default function AdminContentPage() {
         <div className="flex justify-end">
           <button
             type="submit"
-            className="inline-flex items-center gap-2 bg-brand-yellow hover:bg-brand-yellow-hover text-brand-dark px-6 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors shadow-md"
+            className="w-full sm:w-auto justify-center min-h-[44px] inline-flex items-center gap-2 bg-brand-yellow hover:bg-brand-yellow-hover text-brand-dark px-6 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors shadow-md"
           >
             <Save className="w-4 h-4 font-bold" />
             <span>Save & Publish Changes</span>

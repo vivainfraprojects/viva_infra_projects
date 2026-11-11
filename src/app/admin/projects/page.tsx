@@ -125,17 +125,17 @@ export default function AdminProjectsPage() {
             placeholder="Search by title, client, location..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 text-xs rounded-lg border border-brand-border bg-brand-light focus:outline-none focus:border-brand-yellow focus:bg-white text-brand-dark"
+            className="w-full min-h-[42px] pl-9 pr-4 py-2 text-base sm:text-xs rounded-lg border border-brand-border bg-brand-light focus:outline-none focus:border-brand-yellow focus:bg-white text-brand-dark"
           />
         </div>
 
         {/* Category Pills */}
-        <div className="flex flex-wrap gap-1.5 w-full md:w-auto">
+        <div className="flex gap-1.5 w-full md:w-auto overflow-x-auto pb-1 md:pb-0 md:flex-wrap no-scrollbar">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+              className={`min-h-[38px] px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors shrink-0 whitespace-nowrap ${
                 selectedCategory === cat
                   ? "bg-brand-dark text-brand-yellow font-bold"
                   : "bg-brand-light text-brand-muted hover:text-brand-dark hover:bg-gray-200"
@@ -150,8 +150,8 @@ export default function AdminProjectsPage() {
       {/* Projects Table */}
       <div className="bg-white rounded-xl border border-brand-border shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs">
-            <thead className="bg-brand-light text-brand-muted uppercase text-[10px] font-bold tracking-wider border-b border-brand-border">
+          <table className="w-full min-w-[820px] text-left text-xs">
+            <thead className="bg-brand-light text-brand-muted uppercase text-[10px] font-bold tracking-wider border-b border-brand-border whitespace-nowrap">
               <tr>
                 <th className="py-3 px-5">Project Details</th>
                 <th className="py-3 px-5">Category</th>
@@ -243,16 +243,17 @@ export default function AdminProjectsPage() {
 
       {/* Modal for Adding New Project */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-brand-border relative animate-fade-in">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-[60] flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-5 sm:p-6 shadow-2xl border border-brand-border relative animate-fade-in my-auto">
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 text-brand-muted hover:text-brand-dark"
+              className="absolute top-3.5 right-3.5 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg text-brand-muted hover:text-brand-dark hover:bg-brand-light transition-colors"
+              aria-label="Close add project modal"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <h2 className="font-heading font-bold text-lg text-brand-dark mb-1">
+            <h2 className="font-heading font-bold text-lg text-brand-dark mb-1 pr-10">
               Add New Construction Project
             </h2>
             <p className="text-xs text-brand-muted mb-4">
@@ -270,11 +271,11 @@ export default function AdminProjectsPage() {
                   placeholder="e.g. 2000T Hydraulic Press Foundation"
                   value={newProject.title}
                   onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
-                  className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
+                  className="w-full min-h-[42px] px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="font-bold text-brand-dark block mb-1">
                     Category *
@@ -282,7 +283,7 @@ export default function AdminProjectsPage() {
                   <select
                     value={newProject.category}
                     onChange={(e) => setNewProject({ ...newProject, category: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none bg-white"
+                    className="w-full min-h-[42px] px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none bg-white"
                   >
                     <option value="PEB & Structural">PEB & Structural</option>
                     <option value="Civil Construction">Civil Construction</option>
@@ -299,7 +300,7 @@ export default function AdminProjectsPage() {
                   <select
                     value={newProject.status}
                     onChange={(e) => setNewProject({ ...newProject, status: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none bg-white"
+                    className="w-full min-h-[42px] px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none bg-white"
                   >
                     <option value="Ongoing">Ongoing</option>
                     <option value="Completed">Completed</option>
@@ -307,7 +308,7 @@ export default function AdminProjectsPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="font-bold text-brand-dark block mb-1">
                     Client Name
@@ -317,7 +318,7 @@ export default function AdminProjectsPage() {
                     placeholder="e.g. Hyundai Transys India"
                     value={newProject.client}
                     onChange={(e) => setNewProject({ ...newProject, client: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
+                    className="w-full min-h-[42px] px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
                   />
                 </div>
 
@@ -330,7 +331,7 @@ export default function AdminProjectsPage() {
                     placeholder="e.g. 5 Months"
                     value={newProject.duration}
                     onChange={(e) => setNewProject({ ...newProject, duration: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
+                    className="w-full min-h-[42px] px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
                   />
                 </div>
               </div>
@@ -343,7 +344,7 @@ export default function AdminProjectsPage() {
                   type="text"
                   value={newProject.location}
                   onChange={(e) => setNewProject({ ...newProject, location: e.target.value })}
-                  className="w-full px-3 py-2 rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
+                  className="w-full min-h-[42px] px-3 py-2 text-base sm:text-xs rounded-lg border border-brand-border focus:border-brand-yellow focus:outline-none"
                 />
               </div>
 

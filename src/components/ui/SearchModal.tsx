@@ -1,18 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import {
   Search,
   X,
   Building2,
   Wrench,
-  Layers,
   ArrowRight,
-  ShieldCheck,
   FileText,
-  Phone,
 } from "lucide-react";
 import { servicesData } from "@/data/services";
 import { projectsData } from "@/data/projects";
@@ -24,7 +21,12 @@ interface SearchModalProps {
 
 export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const [query, setQuery] = useState("");
+  const [mounted, setMounted] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -44,7 +46,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
   const filteredServices = servicesData.filter((s) =>
     s.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -72,25 +74,28 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     router.push(href);
   };
 
-  return (
+  const modalContent = (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-black/60 backdrop-blur-sm animate-fade-in"
+      className="fixed inset-0 z-[80] flex items-start justify-center pt-12 sm:pt-24 px-3 sm:px-4 bg-black/60 backdrop-blur-sm animate-fade-in"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site Search"
     >
       <div
         className="bg-white rounded-2xl max-w-2xl w-full shadow-2xl border border-brand-border overflow-hidden animate-scale-in"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Input Bar */}
-        <div className="relative border-b border-brand-border p-4 flex items-center gap-3 bg-brand-light">
+        <div className="relative border-b border-brand-border p-3.5 sm:p-4 flex items-center gap-2.5 sm:gap-3 bg-brand-light">
           <Search className="w-5 h-5 text-brand-muted shrink-0" />
           <input
             type="text"
-            placeholder="Search engineering services, industrial projects, GST details..."
+            placeholder="Search services, projects, GST details..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             autoFocus
-            className="w-full bg-transparent text-sm sm:text-base font-medium text-brand-dark focus:outline-none placeholder:text-brand-muted"
+            className="w-full bg-transparent text-base font-medium text-brand-dark focus:outline-none placeholder:text-brand-muted"
           />
           {query && (
             <button
@@ -216,4 +221,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 }
+

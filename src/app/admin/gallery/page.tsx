@@ -137,17 +137,18 @@ export default function AdminGalleryPage() {
       {/* Lightbox Preview */}
       {previewImage && (
         <div
-          className="fixed inset-0 bg-black/85 backdrop-blur-xs z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/85 backdrop-blur-xs z-[60] flex items-center justify-center p-3 sm:p-4"
           onClick={() => setPreviewImage(null)}
         >
           <div className="relative max-w-3xl w-full max-h-[85vh] rounded-2xl overflow-hidden bg-black border border-white/20">
             <button
               onClick={() => setPreviewImage(null)}
-              className="absolute top-4 right-4 bg-black/60 text-white p-2 rounded-full hover:bg-black transition-colors z-10"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center absolute top-3 right-3 bg-black/70 text-white p-2 rounded-full hover:bg-black transition-colors z-10"
+              aria-label="Close image preview"
             >
               <X className="w-5 h-5" />
             </button>
-            <div className="relative h-[500px] w-full">
+            <div className="relative h-[55vh] sm:h-[70vh] max-h-[540px] w-full">
               <Image
                 src={previewImage}
                 alt="Enlarged Project Asset"

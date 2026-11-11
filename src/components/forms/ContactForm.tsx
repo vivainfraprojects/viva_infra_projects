@@ -108,7 +108,7 @@ export function ContactForm() {
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             placeholder="e.g. Rajesh Kumar"
-            className={`w-full px-3.5 py-2.5 rounded-md border text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${
+            className={`w-full px-3.5 py-2.5 min-h-[44px] rounded-md border text-base sm:text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${
               errors.name
                 ? "border-red-400 focus:ring-red-200"
                 : "border-brand-border focus:border-brand-yellow focus:ring-brand-yellow-light"
@@ -138,7 +138,7 @@ export function ContactForm() {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               placeholder="e.g. rajesh@company.com"
-              className={`w-full px-3.5 py-2.5 rounded-md border text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${
+              className={`w-full px-3.5 py-2.5 min-h-[44px] rounded-md border text-base sm:text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${
                 errors.email
                   ? "border-red-400 focus:ring-red-200"
                   : "border-brand-border focus:border-brand-yellow focus:ring-brand-yellow-light"
@@ -165,7 +165,7 @@ export function ContactForm() {
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               placeholder="e.g. +91 98765 43210"
-              className={`w-full px-3.5 py-2.5 rounded-md border text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${
+              className={`w-full px-3.5 py-2.5 min-h-[44px] rounded-md border text-base sm:text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${
                 errors.phone
                   ? "border-red-400 focus:ring-red-200"
                   : "border-brand-border focus:border-brand-yellow focus:ring-brand-yellow-light"
@@ -192,7 +192,7 @@ export function ContactForm() {
             id="contact-project-type"
             value={formData.projectType}
             onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-            className="w-full px-3.5 py-2.5 rounded-md border border-brand-border text-sm text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow-light transition-all"
+            className="w-full px-3.5 py-2.5 min-h-[44px] rounded-md border border-brand-border text-base sm:text-sm text-brand-dark bg-white focus:outline-none focus:border-brand-yellow focus:ring-2 focus:ring-brand-yellow-light transition-all"
           >
             <option value="Civil Construction">Civil Construction & Foundations</option>
             <option value="PEB & Structural">PEB & Structural Steel Works</option>
@@ -220,7 +220,7 @@ export function ContactForm() {
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             placeholder="Describe your project location, scope, proposed dimensions, or schedule requirements..."
-            className={`w-full px-3.5 py-2.5 rounded-md border text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${
+            className={`w-full px-3.5 py-2.5 rounded-md border text-base sm:text-sm text-brand-dark bg-white focus:outline-none focus:ring-2 transition-all ${
               errors.message
                 ? "border-red-400 focus:ring-red-200"
                 : "border-brand-border focus:border-brand-yellow focus:ring-brand-yellow-light"
